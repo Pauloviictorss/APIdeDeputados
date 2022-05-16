@@ -7,7 +7,7 @@ const Menu = () => {
     <div>
       
 
-        <Navbar bg="dark" variant="dark">
+      <Navbar style={{ margin: '20px', borderRadius: '20px', backgroundColor: "rgba(0,0,0, 0.92)"}} variant="dark" fixed="top">
           <Container>
 
           <Navbar.Brand className="btn btn-success my-1" style={{height: '45px'}} href="/">SD - Site dos Deputados</Navbar.Brand>

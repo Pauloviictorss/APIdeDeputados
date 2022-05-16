@@ -1,9 +1,10 @@
 import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
+import apiDeputados from './../services/apiDeputados'
 
 const DetalhesPartido = () => {
   return (
-    <div>
+    <div style={{ marginTop: "120px" }}>
         <Row>
             <Col>
                 <Card className='mt-4 mx-1' style={{ width: '300px' }}>

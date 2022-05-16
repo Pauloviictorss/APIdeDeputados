@@ -3,17 +3,18 @@ import React, { useEffect, useState } from 'react'
 import { Card, Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import apiDeputados from './../services/apiDeputados'
+import { BsSearch } from 'react-icons/bs';
 
 
-const Partidos = () => {
+const Deputados = () => {
 
-    const [partidos, setPartidos] = useState([])
+    const [deputados, setDeputados] = useState([])
     const [query, setQuery] = useState('')
 
     useEffect(() => {
-        apiDeputados.get('partidos/').then(resultado => {
+        apiDeputados.get('deputados/').then(resultado => {
             console.log(resultado.data)
-            setPartidos(resultado.data.dados)
+            setDeputados(resultado.data.dados)
         })
     }, [])
 
@@ -23,7 +24,7 @@ const Partidos = () => {
       }
       function pesquisarBotao (event) {
         apiDeputados.get('search/movie?language=pt-BR&query=' + query).then(resultado => {
-          setPartidos(resultado.data)
+          setDeputados(resultado.data)
           console.log(resultado.data)
         })
       }
@@ -39,21 +40,21 @@ const Partidos = () => {
 
         <Card>
             <Card className='bg-dark text-light align-items-center p-2 m-2'>
-                <h1>Todos os Partidos</h1>
+                <h1>Todos os Deputados</h1>
             </Card>
-            { !partidos.length && <h1>Carregando... Aguarde</h1>}
+            { !deputados.length && <h1>Carregando... Aguarde</h1>}
             <Card className='p-2 m-2 bg-light'>
                 <Row xs={1} md={2} xl={3} className="g-4">
-                {partidos.map(item => (
+                {deputados.map(item => (
                     <Col>
                         <Card>
-                            <Card.Img variant="top" src={item.urlLogo} />
+                            <Card.Img variant="top" src={item.urlFoto } />
                             <Card.Body>
-                                <Card.Title><h3>{item.sigla}</h3></Card.Title>
-                                <Card.Text><strong>Nome: </strong>{item.nome}</Card.Text>
-                                <Card.Text><strong>Estado: </strong>{item.urlLogo}</Card.Text>
+                                <Card.Title><h3>{item.nome}</h3></Card.Title>
+                                <Card.Text><strong>Partido: </strong>{item.siglaPartido}</Card.Text>
+                                <Card.Text><strong>Estado: </strong>{item.siglaUf}</Card.Text>
 
-                                <Link className="btn btn-success w-100" to={'/detalhespartido/' + item.id}>
+                                <Link className="btn btn-success w-100" to={'/detalhesdeputado/' + item.id}>
                                     Ver Detalhes
                                 </Link>
 
@@ -68,4 +69,4 @@ const Partidos = () => {
   )
 }
 
-export default Partidos
+export default Deputados

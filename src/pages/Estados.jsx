@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Estados = () => {
   return (
-    <div>
+    <div style={{ marginTop: "120px" }}>
         <Card className='mt-5 mb-5'> 
             <input style={{ height: '40px', borderRadius: '8px' }} className='text-light bg-dark p-4' placeholder='Pesquisar...' type="Text"></input> 
         </Card>

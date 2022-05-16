@@ -8,6 +8,7 @@ import Partidos from './pages/Partidos';
 import Estados from './pages/Estados';
 import DetalhesDeputados from './pages/DetalhesDeputados';
 import DetalhesPartido from './pages/DetalhesPartido';
+import Deputados from './pages/Deputados';
 
 function App() {
   return (
@@ -21,8 +22,10 @@ function App() {
             <Route path="/" element={<HomeScreen/>}/>
             <Route path="/partidos" element={<Partidos/>}/>
             <Route path="/estados" element={<Estados/>}/>
-            <Route path="/detalhesdeputado" element={<DetalhesDeputados/>}/>
-            <Route path="/detalhespartido" element={<DetalhesPartido/>}/>
+            <Route path="/deputados" element={<Deputados/>}/>
+            <Route path="/detalhesdeputado/:id" element={<DetalhesDeputados/>}/>
+            <Route path="/detalhespartido/:id" element={<DetalhesPartido/>}/>
+            
           </Routes>
         </Container>
 
